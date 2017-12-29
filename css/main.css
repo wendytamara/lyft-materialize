@@ -1,0 +1,52 @@
+/*clases para el splash*/
+
+.container-start {
+  background: linear-gradient(#530060 , #d00984 );
+  height: 100vh;
+}
+
+.img-logo {
+  width: 200px;
+  transform: translateY(150%);
+}
+
+/*clases para la 2da vista SING UP*/
+
+.img-car {
+  background-image: url("../assets/images/auto.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+.logo-size {
+  width: 100px;
+}
+
+.img-size {
+  transform: translateY(50%);
+  width: 350px;
+  height: 300px;
+}
+
+.buttons {
+  margin-top: 250px;
+}
+
+.buttons a {
+  border: 1px solid;
+}
+
+.loading {
+  position: relative;
+  top: 350px;
+  right: 140px;
+}
+
+.verify {
+  clear: both;
+}
+
+.btn-next {
+  width: 90%;
+}
