@@ -50,3 +50,26 @@
 .btn-next {
   width: 90%;
 }
+
+.size-input {
+  width: 60px !important;
+}
+
+.code {
+  display: inline-block;
+  padding-right: 10px;
+}
+
+.btn-resent {
+  border: none;
+  padding: 5px 10px;
+}
+
+.btn-verify {
+  transform: translateY(800%);
+  width: 80%;
+}
+
+.btnAdd {
+  background: linear-gradient(to right, #d00984 , #530060 );
+}
