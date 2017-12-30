@@ -78,3 +78,7 @@
 .btnSend {
   transform: translateY(400%);
 }
+
+.aceptServices {
+  font-weight: 700;
+}
