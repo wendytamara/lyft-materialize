@@ -63,10 +63,11 @@
 .btn-resent {
   border: none;
   padding: 5px 10px;
+  outline: none !important;
 }
 
 .btn-verify {
-  transform: translateY(800%);
+  transform: translateY(600%);
   width: 80%;
 }
 

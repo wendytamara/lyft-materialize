@@ -11,17 +11,19 @@ function begin(){
  },1000 );
 
  // nombrando variables reutilizables
-    var code = Math.floor((Math.random() * 1000) + 1);
+
 
     var $number = $("#icon_telephone");
     var $boton = $(".btn-next");
     var $insertCode = $("#insertCode");
     var $btn = $("#btnVerify");
+    var $btnResentCode = $(".btn-resent");
 
 // nombrando eventos y funciones
     $number.on("keyup",validCelphoneNumber);
     $boton.on("click", randomCode);
-    $insertCode.on("keyup", validCodeRandom);
+
+    $btnResentCode.on("click", resentRandomCode);
 
 // funcion para validar el numero de tlf de 10 dgts
     function validCelphoneNumber(){
@@ -35,22 +37,34 @@ function begin(){
 
     // funcion para crear el alert con el codigo aleatorio
     function randomCode(){
-      debugger
+      var code = Math.floor((Math.random() * 1000) + 1);
+      alert("Tu codigo: " + "LAB "  + code);
+    }
+
+    // funcion para reenviar nuevamente el codigo aleatorio
+    function resentRandomCode() {
+      $insertCode.on("keyup", validCodeRandom);
+      var code = Math.floor((Math.random() * 1000) + 1);
       alert("Tu codigo: " + "LAB "  + code);
       console.log(code);
+
+      // funcion para validar el codigo aleatorio
+        function validCodeRandom() {
+        var $camptText = parseInt($insertCode.val());
+          if ($camptText === code) {
+            $btn.removeClass("disabled");
+            $btn.addClass("btnAdd");
+          }
+          else {
+            $btn.addClass("disabled");
+            $btn.removeClass("btnAdd");
+
+          }
+        }
     }
 
 
-    function validCodeRandom(){
 
-      var $camptText = parseInt($insertCode.val());
-      if ($camptText === code) {
-        $btn.removeClass("disabled");
-      }
-      else {
-        $btn.addClass("disabled");
-      }
-    }
 
 
 
