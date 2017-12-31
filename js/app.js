@@ -99,14 +99,13 @@ function begin(){
 
       function validForm() {
         if (validFirstName() && validLastName() && validEmail() && validCheckbox()) {
-          $btnForm.removeClass('disabled');
+          $btnForm.removeClass('disabled'); 
+          $btnForm.addClass('btnAdd');
         }
         else {
           $btnForm.addClass('disabled');
         }
       }
-
-
 
 
 

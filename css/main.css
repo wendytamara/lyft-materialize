@@ -6,8 +6,8 @@
 }
 
 .img-logo {
-  width: 200px;
   transform: translateY(150%);
+  width: 200px;
 }
 
 /*clases para la 2da vista SING UP*/
@@ -24,13 +24,12 @@
 }
 
 .img-size {
-  transform: translateY(50%);
-  width: 350px;
   height: 300px;
+  width: 350px;
 }
 
 .buttons {
-  margin-top: 250px;
+  transform: translateY(150%);
 }
 
 .buttons a {
@@ -39,15 +38,14 @@
 
 .loading {
   position: relative;
-  top: 350px;
-  right: 140px;
+  top: 280px;
 }
 
 .verify {
   clear: both;
 }
 
-.btn-next,.btn-next2 {
+.btn-next, .btn-next2 {
   width: 90%;
 }
 
@@ -73,6 +71,7 @@
 
 .btnAdd {
   background: linear-gradient(to right, #d00984 , #530060 );
+  font-weight: 700;
 }
 
 .btnSend {
@@ -81,4 +80,24 @@
 
 .aceptServices {
   font-weight: 700;
+}
+
+/*clases para la pagina 5*/
+
+.img-lg {
+  transform: translateY(120%);
+  width: 250px;
+}
+
+.img-check {
+  background-color: #fff;
+  height: 180px !important;
+  transform: translateY(240px);
+  width: 190px;
+
+}
+
+.container-finish {
+  background: linear-gradient(to bottom right, #530060, #e19);
+  height: 100vh;
 }
