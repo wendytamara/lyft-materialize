@@ -17,12 +17,11 @@ function begin(){
     var $insertCode = $("#insertCode");
     var $btn = $("#btnVerify");
     var $btnResentCode = $(".btn-resent");
-    var $btnForm = $("#btn-form");
     var $firstName = $("#firstName");
     var $lastName = $("#lastName");
     var $email = $("#email");
     var $checkbox = $(".checkbox");
-    var btnForm = $("#btn-form");
+    var $btnForm = $("#btn-form");
 
 
 // nombrando eventos y funciones
@@ -31,9 +30,16 @@ function begin(){
     $btnResentCode.on("click", resentRandomCode);
     // $btnForm.on("click", validForm);
     $firstName.on("keyup", validFirstName);
+    $firstName.on("keyup", validForm);
+
     $lastName.on("keyup", validLastName);
+    $lastName.on("keyup", validForm);
+
     $email.on("keyup", validEmail);
+    $email.on("keyup", validForm);
+
     $checkbox.on("click", validCheckbox);
+    $checkbox.on("click", validForm);
 
 // funcion para validar el numero de tlf de 10 dgts
     function validCelphoneNumber(){
@@ -73,33 +79,32 @@ function begin(){
         }
     }
 
-  function validFirstName() {
-    debugger
-    return $firstName.val().length >= 3;
-  }
 
-  function validLastName() {
-    return $lastName.val().length >= 3;
+      function validFirstName() {
+        return $firstName.val().length >= 3;
 
-  }
+      }
 
-  function validEmail() {
-     return $email.val().length > 6;
-  }
+      function validLastName() {
+        return $lastName.val().length >= 3;
+      }
 
-  function validCheckbox() {
-    return $checkbox.prop("checked");
+      function validEmail() {
+         return $email.val().length > 6;
+      }
 
-  }
+      function validCheckbox() {
+        return $checkbox.prop("checked");
+      }
 
-  function validDatosSend() {
-    debugger
-    if (validFirstName() && validLastName() && validEmail() && validCheckbox())  {
-        $btnForm.removeClass("disabled");
-
-    }
-
-  }
+      function validForm() {
+        if (validFirstName() && validLastName() && validEmail() && validCheckbox()) {
+          $btnForm.removeClass('disabled');
+        }
+        else {
+          $btnForm.addClass('disabled');
+        }
+      }
 
 
 
