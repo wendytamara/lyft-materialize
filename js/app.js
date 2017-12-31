@@ -2,26 +2,24 @@ function begin(){
   // funccion para inicializar el formulario materialize
   $('select').material_select();
 // funcion para realizar el splash
-  $("main").hide();
-// Page 1 -- splash
+  $('main').hide();
   setTimeout(function() {
-   $("section").fadeOut();
-   $("main").show();
-
- },1000 );
+     $('section').fadeOut();
+     $('main').show();
+   },1000 );
 
  // nombrando variables reutilizables
 
-    var $number = $("#icon_telephone");
-    var $boton = $(".btn-next");
-    var $insertCode = $("#insertCode");
-    var $btn = $("#btnVerify");
-    var $btnResentCode = $(".btn-resent");
-    var $firstName = $("#firstName");
-    var $lastName = $("#lastName");
-    var $email = $("#email");
-    var $checkbox = $(".checkbox");
-    var $btnForm = $("#btn-form");
+  var $number = $("#icon_telephone");
+  var $boton = $(".btn-next");
+  var $insertCode = $("#insertCode");
+  var $btn = $("#btnVerify");
+  var $btnResentCode = $(".btn-resent");
+  var $firstName = $("#firstName");
+  var $lastName = $("#lastName");
+  var $email = $("#email");
+  var $checkbox = $(".checkbox");
+  var $btnForm = $("#btn-form");
 
 
 // nombrando eventos y funciones
@@ -62,7 +60,6 @@ function begin(){
       $insertCode.on("keyup", validCodeRandom);
       var code = Math.floor((Math.random() * 1000) + 1);
       alert("Tu codigo: " + "LAB "  + code);
-      console.log(code);
 
       // funcion para validar el codigo aleatorio
         function validCodeRandom() {
@@ -79,18 +76,32 @@ function begin(){
         }
     }
 
-
       function validFirstName() {
-        return $firstName.val().length >= 3;
+        var name = false;
+        var regex = /^[a-zA-Z]*$/;
+        if (regex.test($($firstName).val()) && $firstName.val().length >= 3 ) {
+          name = true;
+        }
+        return name;
 
       }
 
       function validLastName() {
-        return $lastName.val().length >= 3;
+        var lastName = false;
+        var regex = /^[a-zA-Z]*$/;
+        if (regex.test($($lastName).val()) && $lastName.val().length >= 3 ) {
+          lastName = true;
+        }
+        return lastName;
       }
 
-      function validEmail() {
-         return $email.val().length > 6;
+      function validEmail(event) {
+        var email = false;
+        var regex = (/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)*$/);
+        if (regex.test($($email).val())) {
+          email = true;
+        }
+         return email;
       }
 
       function validCheckbox() {
@@ -99,11 +110,12 @@ function begin(){
 
       function validForm() {
         if (validFirstName() && validLastName() && validEmail() && validCheckbox()) {
-          $btnForm.removeClass('disabled'); 
+          $btnForm.removeClass('disabled');
           $btnForm.addClass('btnAdd');
         }
         else {
           $btnForm.addClass('disabled');
+          $btnForm.removeClass('btnAdd');
         }
       }
 
