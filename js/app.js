@@ -12,18 +12,28 @@ function begin(){
 
  // nombrando variables reutilizables
 
-
     var $number = $("#icon_telephone");
     var $boton = $(".btn-next");
     var $insertCode = $("#insertCode");
     var $btn = $("#btnVerify");
     var $btnResentCode = $(".btn-resent");
+    var $btnForm = $("#btn-form");
+    var $firstName = $("#firstName");
+    var $lastName = $("#lastName");
+    var $email = $("#email");
+    var $checkbox = $(".checkbox");
+    var btnForm = $("#btn-form");
+
 
 // nombrando eventos y funciones
     $number.on("keyup",validCelphoneNumber);
     $boton.on("click", randomCode);
-
     $btnResentCode.on("click", resentRandomCode);
+    // $btnForm.on("click", validForm);
+    $firstName.on("keyup", validFirstName);
+    $lastName.on("keyup", validLastName);
+    $email.on("keyup", validEmail);
+    $checkbox.on("click", validCheckbox);
 
 // funcion para validar el numero de tlf de 10 dgts
     function validCelphoneNumber(){
@@ -62,6 +72,34 @@ function begin(){
           }
         }
     }
+
+  function validFirstName() {
+    debugger
+    return $firstName.val().length >= 3;
+  }
+
+  function validLastName() {
+    return $lastName.val().length >= 3;
+
+  }
+
+  function validEmail() {
+     return $email.val().length > 6;
+  }
+
+  function validCheckbox() {
+    return $checkbox.prop("checked");
+
+  }
+
+  function validDatosSend() {
+    debugger
+    if (validFirstName() && validLastName() && validEmail() && validCheckbox())  {
+        $btnForm.removeClass("disabled");
+
+    }
+
+  }
 
 
 
