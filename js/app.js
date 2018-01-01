@@ -38,6 +38,7 @@ function begin(){
 
     $checkbox.on("click", validCheckbox);
     $checkbox.on("click", validForm);
+    $insertCode.on("keyup", validCodeRandom);
 
 // funcion para validar el numero de tlf de 10 dgts
     function validCelphoneNumber(){
@@ -53,28 +54,31 @@ function begin(){
     function randomCode(){
       var code = Math.floor((Math.random() * 1000) + 1);
       alert("Tu codigo: " + "LAB "  + code);
+      localStorage.codeAleatorio = code;
     }
 
     // funcion para reenviar nuevamente el codigo aleatorio
     function resentRandomCode() {
-      $insertCode.on("keyup", validCodeRandom);
       var code = Math.floor((Math.random() * 1000) + 1);
       alert("Tu codigo: " + "LAB "  + code);
-
-      // funcion para validar el codigo aleatorio
-        function validCodeRandom() {
-        var $camptText = parseInt($insertCode.val());
-          if ($camptText === code) {
-            $btn.removeClass("disabled");
-            $btn.addClass("btnAdd");
-          }
-          else {
-            $btn.addClass("disabled");
-            $btn.removeClass("btnAdd");
-
-          }
-        }
+      localStorage.codeAleatorio = code;
     }
+
+    // funcion para validar el codigo aleatorio
+    function validCodeRandom() {
+    var $camptText = $insertCode.val();
+      if ($camptText === localStorage.codeAleatorio) {
+        $btn.removeClass("disabled");
+        $btn.addClass("btnAdd");
+      }
+      else {
+        $btn.addClass("disabled");
+        $btn.removeClass("btnAdd");
+
+      }
+    }
+
+
 
       function validFirstName() {
         var name = false;
