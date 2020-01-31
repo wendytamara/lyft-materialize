@@ -18,7 +18,12 @@ function begin() {
   var $lastName = $('#lastName');
   var $email = $('#email');
   var $checkbox = $('.checkbox');
-  var $btnForm = $('#btn-form');
+  var $btnForm = $('#btn-form'); 
+  var $textOnlyNumber = $('#textOnlyNumber');
+
+  var $textName = $('#textName');
+  var $textLastName = $('#textLastName');
+  var $textEmail = $('#textEmail');
 
   // nombrando eventos y funciones
   $number.on('keyup', validCelphoneNumber);
@@ -38,9 +43,17 @@ function begin() {
   function validCelphoneNumber() {
     if ($number.val().length === 10) {
       $boton.removeClass('disabled');
+      $textOnlyNumber.removeClass('visible');
+      $textOnlyNumber.addClass('noVisible');
+    }
+    else if ($number.val().length > 10) {
+      $textOnlyNumber.addClass('visible');
+      $boton.addClass('disabled');
     }
     else {
       $boton.addClass('disabled');
+      $textOnlyNumber.removeClass('visible');
+      $textOnlyNumber.addClass('noVisible');
     }
   }
 
@@ -75,7 +88,13 @@ function begin() {
     var name = false;
     var regex = /^[a-zA-Z]*$/;
     if (regex.test($($firstName).val()) && $firstName.val().length >= 3) {
+      $textName.removeClass('visible');
+      $textName.addClass('noVisible');
       name = true;
+    }
+    else {
+      $textName.removeClass('noVisible');
+      $textName.addClass('visible');
     }
     return name;
   }
@@ -84,7 +103,14 @@ function begin() {
     var lastName = false;
     var regex = /^[a-zA-Z]*$/;
     if (regex.test($($lastName).val()) && $lastName.val().length >= 3) {
+      $textLastName.removeClass('visible');
+      $textLastName.addClass('noVisible');
+
       lastName = true;
+    }
+    else {
+      $textLastName.removeClass('noVisible');
+      $textLastName.addClass('visible');
     }
     return lastName;
   }
@@ -93,7 +119,13 @@ function begin() {
     var email = false;
     var regex = (/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)*$/);
     if (regex.test($($email).val())) {
+      $textEmail.removeClass('show');
+      $textEmail.addClass('hiden');
       email = true;
+    }
+    else {
+      $textEmail.removeClass('hiden');
+      $textEmail.addClass('show');
     }
     return email;
   }
